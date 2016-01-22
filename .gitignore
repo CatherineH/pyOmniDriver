@@ -3,3 +3,10 @@
 
 # build folder
 bin
+
+# eclipse generated
+.classpath
+.project
+
+*.pyc
+test.png
