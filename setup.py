@@ -9,6 +9,5 @@ setup(name='pyOmniDriver',
       author_email='milankie@gmail.com',
       url='https://github.com/CatherineH/pyOmniDriver',
       py_modules=['spectrometer'],
-      #packages=['spectrometer'],
-      package_dir={"" : "src"}
+      package_dir={"": "src"}
      )

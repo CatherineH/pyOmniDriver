@@ -6,6 +6,10 @@ import sys
 import time
 
 
+class SpectrometerException(Exception):
+    pass
+
+
 def init_jvm(pipe_to_parent):
     """
     init_jvm starts the gateway java instance
@@ -48,7 +52,8 @@ class Spectrometer(JavaGateway):
         exc_info = to_child.recv()
         # if the startup did not go well, exit
         if exc_info[0] == ValueError:
-            print "pyOmniDriver failed: "+str(exc_info[1])
+            raise SpectrometerException("pyOmniDriver failed: "+str(exc_info[
+                                                                        1]))
             return
         # wait for the process to start
         connection = False
