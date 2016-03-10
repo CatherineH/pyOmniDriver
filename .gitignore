@@ -2,8 +2,10 @@
 .idea
 
 # build folder
-bin
+bin/java_command
 build
+src/pyOmniDriver.egg-info
+
 # eclipse generated
 .classpath
 .project
