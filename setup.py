@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(name='pyOmniDriver',
       version='0.1',
@@ -8,6 +8,7 @@ setup(name='pyOmniDriver',
       author='Catherine Holloway',
       author_email='milankie@gmail.com',
       url='https://github.com/CatherineH/pyOmniDriver',
-      py_modules=['spectrometer'],
-      package_dir={"": "src"}
-     )
+      packages=find_packages(),
+      package_data={
+        'src': ['SpectrometerServer.class'],
+      })

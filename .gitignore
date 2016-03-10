@@ -2,7 +2,9 @@
 .idea
 
 # build folder
+dist
 bin/java_command
+pyOmniDriver.egg-info
 build
 src/pyOmniDriver.egg-info
 

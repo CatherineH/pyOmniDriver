@@ -18,25 +18,31 @@ def init_jvm(pipe_to_parent):
     try:
         # first, setup and test the file locations - change these to your system
 
-        od_jar_locations = "C:\\Program Files\\Ocean Optics\\OmniDriver\\OOI_HOME"
+        od_jar_locations = \
+            "C:\\Program Files\\Ocean Optics\\OmniDriver\\OOI_HOME"
         java_location = "C:\\Program Files\\Java\\jre1.8.0_65\\bin\\java.exe"
         py4j_location = "c:\\Python27\\share\\py4j\\py4j0.9.jar"
 
         if not os.path.isdir(od_jar_locations):
-            raise ValueError("OmniDriver directory: "+od_jar_locations+" does not exist")
+            raise ValueError("OmniDriver directory: "+od_jar_locations +
+                             " does not exist")
 
         if not os.path.exists(java_location):
             raise ValueError("Java not found at: "+java_location)
         if not os.path.exists(py4j_location):
             raise ValueError("Py4J not found at: "+py4j_location)
 
-        jars = [os.path.join(od_jar_locations, _file) for _file in os.listdir(od_jar_locations) if _file.endswith(".jar")]
+        jars = [os.path.join(od_jar_locations, _file)
+                for _file in os.listdir(od_jar_locations)
+                if _file.endswith(".jar")]
 
-        # this assumes that your .class file has been compiled to the same folder as this script
+        # this assumes that your .class file has been compiled to the same
+        # folder as this script
         file_encoding = "-Dfile.encoding=Cp1252"
         jars.append(py4j_location)
-        classpath = os.getcwd().replace("src", "bin")+";"+";".join(jars)
-        parts = [java_location, file_encoding, "-classpath", classpath, "SpectrometerServer"]
+        classpath = os.getcwd()+";"+";".join(jars)
+        parts = [java_location, file_encoding, "-classpath", classpath,
+                 "SpectrometerServer"]
         call(parts)
     except Exception as e:
         pipe_to_parent.send((type(e), e))
