@@ -4,10 +4,17 @@
 # build folder
 bin
 build
+dist
+pyOmniDriver.egg-info
+src/pyOmniDriver.egg-info
+
+
 # eclipse generated
 .classpath
 .project
 
 *.pyc
 test.png
+
+
 

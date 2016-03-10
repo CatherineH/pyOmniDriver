@@ -4,6 +4,7 @@ from spectrometer import Spectrometer
 
 if __name__ == '__main__':
     wrapper = Spectrometer()
+    print "finished opening spectrometer"
     num_open = wrapper.openAllSpectrometers()
 
     spectrometerIndex = 0
