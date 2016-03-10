@@ -40,7 +40,7 @@ def init_jvm(pipe_to_parent):
         # folder as this script
         file_encoding = "-Dfile.encoding=Cp1252"
         jars.append(py4j_location)
-        classpath = os.getcwd()+";"+";".join(jars)
+        classpath = os.path.dirname(__file__)+";"+";".join(jars)
         parts = [java_location, file_encoding, "-classpath", classpath,
                  "SpectrometerServer"]
         call(parts)
