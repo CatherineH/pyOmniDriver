@@ -1,1 +1,1 @@
-from spectrometer import Spectrometer, SpectrometerException
+from .spectrometer import Spectrometer, SpectrometerException
