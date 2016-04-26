@@ -50,8 +50,8 @@ class Spectrometer(JavaGateway):
     def __init__(self):
         super(self.__class__, self).__init__()
         #to_child, to_self = Pipe()
-        p = Process(target=init_jvm)
-        p.start()
+        self.p = Process(target=init_jvm)
+        self.p.start()
 
         # wait for the process to start
         connection = False
@@ -67,3 +67,6 @@ class Spectrometer(JavaGateway):
                 sys.stdout.flush()
                 print(e)
                 time.sleep(0.1)
+
+    def close(self):
+        self.p.terminate()
